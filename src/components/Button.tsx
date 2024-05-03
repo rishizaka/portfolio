@@ -1,4 +1,5 @@
 import { VariantProps, cva } from "class-variance-authority"
+import classNames from "classnames"
 
 const buttonVaritant = cva(['font-medium', 'py-2.5', 'px-3.5', 'rounded-md'], {
     variants: {
@@ -21,6 +22,9 @@ VariantProps<typeof buttonVaritant> {
 
 export const Button = ({ className, variant, ...props }: Props) => {
     return (
+      <div>
         <p className="text-red-500">Hello!!</p>
+        <p className={classNames("font-bold", "text-yellow-400",  "")}>こんにちは</p>
+      </div>
     )
 }
