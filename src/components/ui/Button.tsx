@@ -1,15 +1,15 @@
 import { VariantProps, cva } from "class-variance-authority";
-import classNames from "classnames";
-import { isValidElement } from "react";
 import { Slot } from "@radix-ui/react-slot";
+import clsx from "clsx";
+import { cn } from "@/utils/cn";
 
 const buttonVariant = cva(
-  "font-medium py-2.5 px-3.5 rounded-md text-white focus:outline-[#5881E0] focus:outline-8",
+  "py-2.5 px-3.5 rounded-md text-white focus:outline-[#5881E0] focus:outline-8 flex justify-center",
   {
     variants: {
       variant: {
-        default: "bg-[#153448] hover:bg-[#265F84]",
-        secondary: "bg-[#948979] text-[#153448] hover:bg-[#DFD0B8]",
+        default: "bg-navy hover:bg-[#265F84]",
+        secondary: "bg-[#948979] text-navy hover:bg-[#DFD0B8]",
         link: "bg-transparent text-black underline hover:no-underline px-0 py-0",
       },
       outline: {
@@ -39,20 +39,25 @@ interface Props
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
     VariantProps<typeof buttonVariant> {
   asChild?: boolean;
+  className?: string;
 }
 
 export const Button = ({
   variant,
   outline,
-  className,
+  className = "",
   asChild = false,
   children,
   ...props
 }: Props) => {
   const Comp = asChild ? Slot : "button";
   return (
+    // <Comp className={clsx(buttonVariant({ variant, outline }))} {...props}>
     <Comp
-      className={classNames(buttonVariant({ variant, outline }))}
+      className={cn(
+        "py-2.5 px-3.5 rounded-md text-white focus:outline-[#5881E0] focus:outline-8 flex justify-center bg-navy",
+        className
+      )}
       {...props}
     >
       {children}
