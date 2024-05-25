@@ -3,13 +3,14 @@ import { Inter } from "next/font/google";
 import Link from "next/link";
 import { Button } from "@/components/ui/Button";
 import { cn } from "@/utils/cn";
+import CarouselReactSlick from "@/components/ui/CarouselReactSlick";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
   return (
     <main className="flex flex-col">
-      <div className="flex flex-col justify-center pt-16 pb-8 items-center gap-12 bg-[url('/images/top-background.jpg')] bg-cover bg-center text-white">
+      <div className="flex flex-col justify-center pt-16 pb-8 items-center gap-12 bg-[url('/images/banner-flower.jpg')] bg-cover bg-center text-white">
         <h1 className="text-5xl w-[300px] flex flex-col gap-3 font-bold">
           <span className="block">This is </span>
           <span className="flex justify-center">
@@ -21,7 +22,7 @@ export default function Home() {
         </h1>
         <Button asChild className="rounded-full">
           <Link href="#" className=" w-[180px] font-bold rounded-full">
-            career
+            works
           </Link>
         </Button>
       </div>
@@ -37,10 +38,10 @@ export default function Home() {
           <Button
             variant="link"
             asChild
-            className="flex-1 w-full flex flex-col gap-2 items-center py-2 border border-navy text-black bg-white hover:bg-[#B4CDD8]"
+            className="flex-1 w-full flex flex-col gap-2 items-center py-2 border border-navy text-black bg-white hover:bg-[#B4CDD8] shadow-md"
           >
             <Link href="#" className="">
-              <h3 className="w-fit">趣味</h3>
+              <h3 className="w-fit">制作物</h3>
               <div className="w-full h-[100px] relative">
                 <Image src="/images/hobby.svg" fill alt="" />
               </div>
@@ -49,7 +50,7 @@ export default function Home() {
           <Button
             variant="link"
             asChild
-            className="flex-1 w-full flex flex-col gap-2 items-center py-2 border border-navy text-black bg-white hover:bg-[#B4CDD8]"
+            className="flex-1 w-full flex flex-col gap-2 items-center py-2 border border-navy text-black bg-white hover:bg-[#B4CDD8] shadow-md"
           >
             <Link href="#" className="">
               <h3 className="w-fit">経歴</h3>
@@ -79,23 +80,29 @@ export default function Home() {
       </div>
 
       <div className="py-10 flex flex-col items-center font-semibold gap-4 px-4">
-        <h2 className="text-2xl w-max">制作物</h2>
+        <h2 className="text-2xl w-max">趣味</h2>
         <p className="text-sm leading-6">
           作成したコンポーネントたちです。色々なライブラリをお試しで使ってみました。Headless
-          UIは圧倒的な自由ですね!
+          UIは自由度が圧倒的ですね!
         </p>
         <div>
-          <div>
-            <h3>ボタン</h3>
-          </div>
-          <div>
-            <h3>カーセル</h3>
+          <div className="w-[300px]">
+            <CarouselReactSlick images={images} />
           </div>
         </div>
       </div>
     </main>
   );
 }
+
+const images = [
+  "/images/html-css.jpg",
+  "/images/ts.jpg",
+  "/images/react.jpg",
+  "/images/laravel.jpg",
+  "/images/mysql.jpg",
+  "/images/git.jpg",
+];
 
 interface SkillProps extends React.HTMLAttributes<HTMLDivElement> {
   language: string;
