@@ -1,118 +1,135 @@
 import Image from "next/image";
 import { Inter } from "next/font/google";
+import Link from "next/link";
+import { Button } from "@/components/ui/Button";
+import { cn } from "@/utils/cn";
+import CarouselReactSlick from "@/components/ui/CarouselReactSlick";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
   return (
-    <main
-      className={`flex min-h-screen flex-col items-center justify-between p-24 ${inter.className}`}
-    >
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">src/pages/index.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+    <main className="flex flex-col">
+      <div className="flex flex-col justify-center pt-16 pb-8 items-center gap-12 bg-[url('/images/banner-flower.jpg')] bg-cover bg-center text-white">
+        <h1 className="text-5xl w-[300px] flex flex-col gap-3 font-bold">
+          <span className="block">This is </span>
+          <span className="flex justify-center">
+            <span>WEB SITE</span>
+          </span>
+          <span className="flex justify-end">
+            <span>of Ishizaka</span>
+          </span>
+        </h1>
+        <Button asChild className="rounded-full bg-black">
+          <Link href="#" className="w-[180px] font-bold rounded-full">
+            works
+          </Link>
+        </Button>
+      </div>
+
+      <div className="py-10 flex flex-col items-center font-semibold gap-6 px-4">
+        <div className="flex flex-col gap-4 items-center">
+          <h2 className="text-xl w-max">私はどんな人か</h2>
+          <p className="text-sm font-medium leading-6">
+            趣味や普段の生活は”ゆるく”がモットーです。趣味は仕事にしないからこそ良き趣味であると思います。日々の疲れを癒してくれる、そんな私の趣味とは一体どのようなものなのでしょうか。
+          </p>
+        </div>
+        <div className="flex w-full gap-2">
+          <Button
+            variant="link"
+            asChild
+            className="flex-1 w-full flex flex-col gap-2 items-center py-2 border border-navy text-black bg-white hover:bg-[#B4CDD8] shadow-md"
           >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+            <Link href="/works/" className="">
+              <h3 className="w-fit">制作物</h3>
+              <div className="w-full h-[100px] relative">
+                <Image src="/images/hobby.svg" fill alt="" />
+              </div>
+            </Link>
+          </Button>
+          <Button
+            variant="link"
+            asChild
+            className="flex-1 w-full flex flex-col gap-2 items-center py-2 border border-navy text-black bg-white hover:bg-[#B4CDD8] shadow-md"
+          >
+            <Link href="#" className="">
+              <h3 className="w-fit">経歴</h3>
+              <div className="w-full h-[100px] relative">
+                <Image src="/images/work.svg" fill alt="" />
+              </div>
+            </Link>
+          </Button>
         </div>
       </div>
 
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-full sm:before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full sm:after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700/10 after:dark:from-sky-900 after:dark:via-[#0141ff]/40 before:lg:h-[360px]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
+      <div className="py-10 flex flex-col items-center font-semibold gap-4">
+        <h2 className="text-xl w-max">スキルセット</h2>
+        <div className="flex flex-col w-full px-4">
+          <Skill language="HTML/CSS" href="/images/html-css.jpg" />
+          <Skill language="TypeScript" href="/images/ts.jpg" />
+          <Skill language="React/Next.js" href="/images/react.jpg" />
+          <Skill language="Laravel" href="/images/laravel.jpg" />
+          <Skill language="MySql" href="/images/mysql.jpg" />
+          <Skill language="Git" href="/images/git.jpg" />
+          <Skill
+            language="figma"
+            href="/images/figma.jpg"
+            className="border-none"
+          />
+        </div>
       </div>
 
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Discover and deploy boilerplate example Next.js&nbsp;projects.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50 text-balance`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
+      <div className="py-10 flex flex-col items-center font-semibold gap-4 px-4">
+        <h2 className="text-2xl w-max">ラーメン画像</h2>
+        <p className="text-sm leading-6">
+          食べてきたラーメンの画像集。特段ラーメン好きではないのですが、気づけば画像が溜まっていました。
+        </p>
+        <div>
+          <div className="w-[300px]">
+            <CarouselReactSlick images={images} />
+          </div>
+        </div>
       </div>
     </main>
   );
 }
+
+const images = [
+  "/images/ramen01.jpg",
+  "/images/ramen02.jpg",
+  "/images/ramen03.jpg",
+  "/images/ramen04.jpg",
+  "/images/ramen05.jpg",
+  "/images/ramen06.jpg",
+];
+
+interface SkillProps extends React.HTMLAttributes<HTMLDivElement> {
+  language: string;
+  href: string;
+}
+const Skill = ({ language, href, className = "" }: SkillProps) => {
+  return (
+    <div
+      className={cn(
+        "flex py-4 border-b border-[#B4CDD8] w-full gap-4",
+        className ?? ""
+      )}
+    >
+      <div className="h-[100px] w-[100px] relative">
+        <Image
+          src={href}
+          fill
+          alt=""
+          objectFit="cover"
+          className="rounded-md"
+        />
+      </div>
+      <div className="flex-1 flex flex-col gap-1">
+        <h3 className="font-bold text-base">{language}</h3>
+        <p className="text-xs leading-5 whitespace-pre-wrap">{htmlText}</p>
+      </div>
+    </div>
+  );
+};
+
+const htmlText = `HTMLのタグを正しく使うことを意識しています。アクセシビリティにもSEOに影響してくるので侮ってはいけない!\nCSSは探せば探すほど便利なプロパティが出てくるので日々精進。Tailwindメインをメインに使用しています。`;
