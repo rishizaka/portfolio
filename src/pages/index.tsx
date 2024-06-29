@@ -20,8 +20,8 @@ export default function Home() {
             <span>of Ishizaka</span>
           </span>
         </h1>
-        <Button asChild className="rounded-full">
-          <Link href="#" className=" w-[180px] font-bold rounded-full">
+        <Button asChild className="rounded-full bg-black">
+          <Link href="#" className="w-[180px] font-bold rounded-full">
             works
           </Link>
         </Button>
@@ -40,7 +40,7 @@ export default function Home() {
             asChild
             className="flex-1 w-full flex flex-col gap-2 items-center py-2 border border-navy text-black bg-white hover:bg-[#B4CDD8] shadow-md"
           >
-            <Link href="#" className="">
+            <Link href="/works/" className="">
               <h3 className="w-fit">制作物</h3>
               <div className="w-full h-[100px] relative">
                 <Image src="/images/hobby.svg" fill alt="" />
@@ -80,10 +80,9 @@ export default function Home() {
       </div>
 
       <div className="py-10 flex flex-col items-center font-semibold gap-4 px-4">
-        <h2 className="text-2xl w-max">趣味</h2>
+        <h2 className="text-2xl w-max">ラーメン画像</h2>
         <p className="text-sm leading-6">
-          作成したコンポーネントたちです。色々なライブラリをお試しで使ってみました。Headless
-          UIは自由度が圧倒的ですね!
+          食べてきたラーメンの画像集。特段ラーメン好きではないのですが、気づけば画像が溜まっていました。
         </p>
         <div>
           <div className="w-[300px]">
@@ -96,12 +95,12 @@ export default function Home() {
 }
 
 const images = [
-  "/images/html-css.jpg",
-  "/images/ts.jpg",
-  "/images/react.jpg",
-  "/images/laravel.jpg",
-  "/images/mysql.jpg",
-  "/images/git.jpg",
+  "/images/ramen01.jpg",
+  "/images/ramen02.jpg",
+  "/images/ramen03.jpg",
+  "/images/ramen04.jpg",
+  "/images/ramen05.jpg",
+  "/images/ramen06.jpg",
 ];
 
 interface SkillProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -127,10 +126,10 @@ const Skill = ({ language, href, className = "" }: SkillProps) => {
       </div>
       <div className="flex-1 flex flex-col gap-1">
         <h3 className="font-bold text-base">{language}</h3>
-        <p className="text-xs leading-5">
-          テストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテスト
-        </p>
+        <p className="text-xs leading-5 whitespace-pre-wrap">{htmlText}</p>
       </div>
     </div>
   );
 };
+
+const htmlText = `HTMLのタグを正しく使うことを意識しています。アクセシビリティにもSEOに影響してくるので侮ってはいけない!\nCSSは探せば探すほど便利なプロパティが出てくるので日々精進。Tailwindメインをメインに使用しています。`;

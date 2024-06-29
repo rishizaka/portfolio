@@ -16,20 +16,20 @@ export default function CarouselReactSlick({
   nextIcon = null,
   infinite = true,
 }: Props) {
-  var settings = {
+  const settings = {
     dots: true,
     infinite: infinite,
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
-    prevArrow: prevIcon,
-    nextArrow: nextIcon,
+    prevArrow: prevIcon as React.ReactElement,
+    nextArrow: nextIcon as React.ReactElement,
   };
   return (
     <Slider {...settings} className="w-[80%] mx-auto">
-      {images.map((image) => {
+      {images.map((image, index) => {
         return (
-          <div className="w-[full] h-[200px] relative">
+          <div className="w-[full] h-[200px] relative" key={index}>
             <Image
               src={image}
               fill

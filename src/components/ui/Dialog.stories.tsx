@@ -4,7 +4,7 @@ import { Button } from "./Button";
 import Image from "next/image";
 
 const meta = {
-  title: "ui/Dialog",
+  title: "components/ui/Dialog",
   tags: ["autodocs"],
 } satisfies Meta<typeof Dialog>;
 
