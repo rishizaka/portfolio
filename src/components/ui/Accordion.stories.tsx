@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import * as Accordion from "@radix-ui/react-accordion";
 
 const meta = {
-  title: "ui/Accordion",
+  title: "components/ui/Accordion",
   tags: ["autodocs"],
 } satisfies Meta<typeof Accordion>;
 
