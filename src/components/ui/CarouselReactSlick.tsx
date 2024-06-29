@@ -27,9 +27,9 @@ export default function CarouselReactSlick({
   };
   return (
     <Slider {...settings} className="w-[80%] mx-auto">
-      {images.map((image) => {
+      {images.map((image, index) => {
         return (
-          <div className="w-[full] h-[200px] relative">
+          <div className="w-[full] h-[200px] relative" key={index}>
             <Image
               src={image}
               fill
